@@ -1,0 +1,6 @@
+@import 'simplebar-react/dist/simplebar.min.css';
+
+.simplebar-scrollbar,
+.simplebar-track {
+  display: none !important;
+}

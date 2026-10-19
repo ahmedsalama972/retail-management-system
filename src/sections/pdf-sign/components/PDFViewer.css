@@ -1,0 +1,221 @@
+.pdf-viewer {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.pdf-viewer-empty {
+  background: white;
+  border-radius: 12px;
+  padding: 60px 20px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.pdf-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #f9fafb;
+  border-radius: 8px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.page-controls,
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.page-controls button,
+.zoom-controls button {
+  padding: 8px 16px;
+  background: #042f36;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.2s;
+}
+
+.page-controls button:hover:not(:disabled),
+.zoom-controls button:hover {
+  background: #042f36;
+}
+
+.page-controls button:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+}
+
+.page-controls span,
+.zoom-controls span {
+  font-weight: 600;
+  color: #374151;
+  min-width: 100px;
+  text-align: center;
+}
+
+.pdf-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: auto;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  background: #f9fafb;
+  position: relative;
+}
+
+.pdf-stage {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  line-height: 0;
+  touch-action: pan-x pan-y;
+}
+
+.pdf-stage.placement-mode {
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.pdf-stage.placement-mode::before {
+  content: 'انقر لوضع التوقيع';
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #042f36;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  z-index: 5;
+  pointer-events: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Let overlays receive drag/click — PDF text layer must not block */
+.pdf-stage:not(.pdf-readonly) .react-pdf__Page__textContent,
+.pdf-stage:not(.pdf-readonly) .react-pdf__Page__annotations {
+  pointer-events: none !important;
+}
+
+.placement-hint {
+  margin-top: 10px;
+  padding: 10px 20px;
+  background: #dbeafe;
+  color: #1e40af;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.loading,
+.error {
+  padding: 40px;
+  text-align: center;
+  color: #6b7280;
+  font-size: 16px;
+}
+
+.error {
+  color: #ef4444;
+}
+
+/* React-PDF styles */
+.react-pdf__Page {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+
+.react-pdf__Page__canvas {
+  display: block;
+}
+
+/* Immersive layout — borderless full-width contract view */
+.pdf-viewer--immersive {
+  background: transparent;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  margin-bottom: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.pdf-viewer--immersive .pdf-container {
+  border: none;
+  border-radius: 0;
+  padding: 12px 0 20px;
+  background: #fff;
+  min-height: 280px;
+  overflow-x: auto;
+  overflow-y: auto;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.pdf-viewer--immersive .pdf-stage {
+  flex-shrink: 0;
+}
+
+.pdf-viewer--immersive .pdf-stage.placement-mode::before {
+  display: none;
+}
+
+.pdf-viewer--immersive .react-pdf__Page {
+  box-shadow: none;
+  margin: 0 auto;
+}
+
+.pdf-viewer--immersive .placement-hint {
+  margin: 8px 0 0;
+  border-radius: 8px;
+  text-align: center;
+  width: 100%;
+  max-width: 100%;
+}
+
+.pdf-footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 10px 12px;
+  border-top: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+.pdf-footer-zoom {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+@media (max-width: 768px) {
+  .pdf-footer-bar {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .pdf-viewer--immersive .pdf-container {
+    padding: 8px 0;
+  }
+}

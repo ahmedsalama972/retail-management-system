@@ -1,0 +1,541 @@
+.app {
+  min-height: 100vh;
+}
+
+.app-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.app-header {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  padding: 30px 20px;
+}
+
+.app-header h1 {
+  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.app-header p {
+  font-size: 18px;
+  opacity: 0.9;
+}
+
+.app-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-section,
+.viewer-section,
+.signature-section,
+.download-section {
+  margin-bottom: 20px;
+}
+
+.download-section {
+  text-align: center;
+}
+
+.signature-canvas {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  width: 100%;
+}
+
+.download-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.download-button:hover:not(:disabled) {
+  background: #059669;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.download-button:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.signature-status {
+  margin-top: 15px;
+  color: #10b981;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.placement-instruction {
+  margin-top: 15px;
+  padding: 15px;
+  background: #eff6ff;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.placement-instruction p {
+  color: #1e40af;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.place-signature-button {
+  padding: 10px 20px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.place-signature-button:hover {
+  background: #2563eb;
+  transform: translateY(-1px);
+}
+
+.placement-hint-text {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #3b82f6;
+  font-weight: 500;
+}
+
+.signatures-list {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.signatures-list h4 {
+  margin: 0 0 12px 0;
+  color: #374151;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.signatures-list-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.signature-list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  background: white;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+  font-size: 14px;
+  color: #374151;
+}
+
+.remove-signature-button {
+  background: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  transition: all 0.2s;
+  padding: 0;
+}
+
+.remove-signature-button:hover {
+  background: #dc2626;
+  transform: scale(1.1);
+}
+
+.add-signature-button {
+  width: 100%;
+  padding: 10px 20px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.add-signature-button:hover:not(:disabled) {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+.add-signature-button:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Generate contract — immersive PDF + side tools */
+.generate-contract {
+  width: 100%;
+  max-width: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - var(--layout-header-mobile-height));
+  max-height: calc(100vh - var(--layout-header-mobile-height));
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+@media (min-width: 900px) {
+  .generate-contract {
+    height: calc(100vh - var(--layout-header-desktop-height));
+    max-height: calc(100vh - var(--layout-header-desktop-height));
+  }
+}
+
+.generate-contract-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  padding-left: 10px;
+  padding-right: 10px;
+  flex-shrink: 0;
+}
+
+.generate-contract--upload {
+  height: auto;
+  max-height: none;
+  overflow: auto;
+  background:
+    radial-gradient(1200px 400px at 80% -10%, rgba(26, 41, 66, 0.06), transparent 60%),
+    linear-gradient(180deg, #f4f6f9 0%, #eef2f7 100%);
+  padding-bottom: 24px;
+}
+
+.esign-upload-screen {
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px 8px;
+  box-sizing: border-box;
+  min-height: 0;
+}
+
+.esign-upload-card {
+  width: 100%;
+  max-width: 640px;
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 18px 48px rgba(15, 23, 42, 0.08);
+  padding: 28px 28px 24px;
+  box-sizing: border-box;
+}
+
+.esign-upload-card__title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 800;
+  color: #1a2942;
+  text-align: center;
+}
+
+.esign-upload-card__subtitle {
+  margin: 0 0 22px;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #64748b;
+  text-align: center;
+  line-height: 1.7;
+}
+
+.esign-upload-card__field {
+  margin-bottom: 18px;
+}
+
+.esign-upload-card__label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13.5px;
+  font-weight: 800;
+  color: #1a2942;
+}
+
+.esign-upload-card__hint {
+  margin-top: 4px;
+  margin-bottom: 0;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #94a3b8;
+}
+
+.esign-upload-card__dropzone .pdf-upload {
+  margin-bottom: 0;
+}
+
+.esign-upload-card__dropzone .pdf-upload-area {
+  min-height: 220px;
+  padding: 36px 24px;
+  background: #f8fafc;
+  border: 2px dashed #cbd5e1;
+  border-radius: 14px;
+}
+
+.esign-upload-card__dropzone .pdf-upload-area:hover {
+  border-color: #94a3b8;
+  background: #f1f5f9;
+}
+
+.esign-upload-card__dropzone .pdf-upload-area.dragging {
+  border-color: #1a2942;
+  background: #eef2ff;
+}
+
+.esign-upload-card__dropzone .pdf-upload-area.has-file {
+  border-color: #16a34a;
+  background: #f0fdf4;
+}
+
+.esign-upload-card__dropzone .browse-link {
+  color: #b45309;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.esign-upload-card__dropzone .browse-link:hover {
+  color: #92400e;
+  text-decoration: underline;
+}
+
+.esign-upload-footer {
+  width: 100%;
+  max-width: 640px;
+  margin-top: 18px;
+  display: flex;
+  justify-content: flex-start;
+  padding: 0 4px;
+}
+
+@media (max-width: 600px) {
+  .esign-upload-card {
+    padding: 22px 16px 18px;
+    border-radius: 16px;
+  }
+
+  .esign-upload-card__title {
+    font-size: 18px;
+  }
+}
+
+.generate-contract-workspace {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  gap: 16px;
+  align-items: stretch;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+}
+
+@media (min-width: 961px) {
+  .generate-contract-pdf {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .generate-contract-pdf .pdf-viewer--immersive {
+    flex: 1 1 auto;
+    min-height: 0;
+    height: 100%;
+    max-height: 100%;
+  }
+
+  .generate-contract-pdf .pdf-viewer--immersive .pdf-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    flex: 1 1 auto;
+    min-height: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 20px;
+  }
+
+  .generate-contract-pdf .pdf-viewer--immersive .pdf-stage {
+    flex-shrink: 0;
+  }
+
+  .generate-contract-pdf .pdf-footer-bar {
+    flex-shrink: 0;
+  }
+
+  .generate-contract-panel {
+    min-height: 0;
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+.generate-contract-pdf {
+  min-width: 0;
+  border-radius: 0;
+  overflow: hidden;
+  background: #fff;
+  border: none;
+}
+
+.generate-contract-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-right: 2px;
+}
+
+.generate-contract-panel-card {
+  padding: 16px;
+  border-radius: 12px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+}
+
+.generate-contract-upload-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 24px 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.generate-contract-upload-wrap .pdf-upload {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 0;
+}
+
+.generate-contract-upload-wrap .pdf-upload-area {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.generate-contract-file-name {
+  font-size: 13px;
+  color: #64748b;
+  margin-bottom: 8px;
+  word-break: break-word;
+}
+
+@media (max-width: 960px) {
+  .generate-contract {
+    height: auto;
+    max-height: none;
+    overflow: visible;
+  }
+
+  .generate-contract-workspace {
+    grid-template-columns: 1fr;
+    overflow: visible;
+    flex: none;
+  }
+
+  .generate-contract-pdf {
+    order: 1;
+    max-height: min(72vh, 640px);
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .generate-contract-panel {
+    order: 2;
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+@media (max-width: 600px) {
+  .generate-contract-panel-card {
+    padding: 12px;
+  }
+
+  .download-button {
+    width: 100%;
+    justify-content: center;
+    font-size: 16px;
+    padding: 14px 16px;
+  }
+
+  .place-signature-button,
+  .add-signature-button {
+    width: 100%;
+  }
+}
+
+/* Lock dashboard main scroll — only PDF panel and sidebar scroll */
+main.layout__main:has(.generate-contract) {
+  overflow: hidden;
+  min-height: 0;
+}
+
+@media (max-width: 960px) {
+  main.layout__main:has(.generate-contract) {
+    overflow: visible;
+  }
+}

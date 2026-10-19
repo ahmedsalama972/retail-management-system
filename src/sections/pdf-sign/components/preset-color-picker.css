@@ -1,0 +1,90 @@
+.preset-color-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.preset-color-picker.panel {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12);
+  padding: 12px 14px 14px;
+}
+
+.preset-color-picker-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #111827;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.preset-color-picker-header svg {
+  flex-shrink: 0;
+}
+
+.preset-color-picker-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.preset-color-swatch {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #e5e7eb, 0 1px 3px rgba(15, 23, 42, 0.14);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  background-clip: padding-box;
+}
+
+.preset-color-swatch:hover {
+  transform: translateY(-1px);
+}
+
+.preset-color-swatch.is-selected {
+  box-shadow:
+    0 0 0 2px #fff,
+    0 0 0 4px #111827,
+    0 2px 8px rgba(15, 23, 42, 0.2);
+}
+
+.preset-color-swatch svg {
+  width: 14px;
+  height: 14px;
+  color: #fff;
+  pointer-events: none;
+}
+
+.preset-color-picker.compact {
+  gap: 0;
+}
+
+.preset-color-picker.compact .preset-color-swatch {
+  width: 22px;
+  height: 22px;
+}
+
+.preset-color-picker.compact .preset-color-picker-row {
+  gap: 8px;
+}
+
+.preset-color-picker.compact .preset-color-swatch svg {
+  width: 11px;
+  height: 11px;
+}
+
+.preset-color-picker.compact .preset-color-swatch.is-selected {
+  box-shadow:
+    0 0 0 1px #fff,
+    0 0 0 3px #111827,
+    0 1px 4px rgba(15, 23, 42, 0.18);
+}

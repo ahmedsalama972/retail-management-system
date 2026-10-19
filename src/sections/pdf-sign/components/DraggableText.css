@@ -1,0 +1,147 @@
+.draggable-signature.draggable-text {
+  user-select: none;
+}
+
+.draggable-signature.draggable-text.is-active,
+.draggable-signature.draggable-text .draggable-text-input {
+  user-select: text;
+}
+
+.draggable-text {
+  box-sizing: border-box;
+  touch-action: none;
+}
+
+.draggable-text .text-content {
+  display: block;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.01);
+}
+
+.draggable-text-label {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  padding: 4px;
+  line-height: 1.25;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;
+  pointer-events: none;
+}
+
+.draggable-text-input {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  resize: none;
+  padding: 4px;
+  margin: 0;
+  background: transparent;
+  font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif;
+  line-height: 1.25;
+  overflow: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  pointer-events: auto;
+}
+
+.draggable-signature.draggable-text:hover,
+.draggable-signature.draggable-text.is-active {
+  border: none;
+  padding: 0;
+  outline: 2px dashed #2563eb;
+  background: rgba(37, 99, 235, 0.05);
+  box-shadow: none;
+}
+
+.draggable-text-label,
+.draggable-text-input,
+.draggable-text-html {
+  unicode-bidi: plaintext;
+}
+
+.draggable-text-label p,
+.draggable-text-input p,
+.draggable-text-html p {
+  margin: 0;
+}
+
+.draggable-text-html ul,
+.draggable-text-html ol {
+  margin: 0;
+  padding-inline-start: 1.2em;
+}
+
+.draggable-signature.draggable-text.is-active .remove-signature,
+.draggable-signature.draggable-text.is-active .resize-handle,
+.draggable-signature.draggable-text:hover .remove-signature,
+.draggable-signature.draggable-text:hover .resize-handle {
+  opacity: 1;
+  visibility: visible;
+}
+
+.draggable-text-toolbar {
+  position: absolute;
+  inset-inline-start: 0;
+  z-index: 20;
+  padding: 4px 6px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+  display: none;
+  flex-wrap: wrap;
+  max-width: min(420px, 90vw);
+}
+
+.draggable-text-toolbar.is-below {
+  top: calc(100% + 8px);
+}
+
+.draggable-text-toolbar:not(.is-below) {
+  bottom: calc(100% + 8px);
+}
+
+.draggable-text-toolbar.is-below::before,
+.draggable-text-toolbar:not(.is-below)::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+
+.draggable-text-toolbar.is-below::before {
+  top: -10px;
+}
+
+.draggable-text-toolbar:not(.is-below)::after {
+  bottom: -10px;
+}
+
+.draggable-text:hover .draggable-text-toolbar,
+.draggable-text.is-active .draggable-text-toolbar,
+.draggable-text-toolbar:hover {
+  display: flex;
+}
+
+.draggable-signature.draggable-text.is-readonly {
+  cursor: default;
+  pointer-events: none;
+}
+
+.draggable-signature.draggable-text.is-readonly:hover,
+.draggable-signature.draggable-text.is-readonly.is-active {
+  border: none;
+  padding: 0;
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+}

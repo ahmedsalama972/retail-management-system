@@ -1,0 +1,104 @@
+.rich-text-editor {
+  width: 100%;
+}
+
+.rich-text-label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 700;
+  font-size: 14px;
+  color: #1b2a3a;
+}
+
+.rich-text-shell {
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background: #f4f5f7;
+  overflow: hidden;
+}
+
+.rich-text-shell:focus-within {
+  border-color: #1b2a3a;
+  background: #fff;
+}
+
+.rich-text-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  padding: 8px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.rich-text-toolbar.compact {
+  padding: 4px 6px;
+  border-bottom: 0;
+  background: transparent;
+}
+
+.rich-text-btn {
+  min-width: 32px;
+  height: 28px;
+  padding: 0 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  background: #fff;
+  color: #1b2a3a;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.rich-text-btn.is-active {
+  border-color: #042f36;
+  background: #eef6f4;
+}
+
+.rich-text-btn:hover {
+  border-color: #042f36;
+  background: #f8fafc;
+}
+
+.rich-text-size {
+  min-width: 28px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #374151;
+}
+
+.rich-text-surface {
+  min-height: 88px;
+  max-height: 220px;
+  overflow: auto;
+  padding: 12px;
+  outline: none;
+  color: #1b2a3a;
+  line-height: 1.35;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  unicode-bidi: plaintext;
+}
+
+.rich-text-surface:empty:before {
+  content: attr(data-placeholder);
+  color: #8b95a5;
+  pointer-events: none;
+}
+
+.rich-text-surface p,
+.draggable-text-html p {
+  margin: 0;
+}
+
+.rich-text-surface ul,
+.rich-text-surface ol,
+.draggable-text-html ul,
+.draggable-text-html ol {
+  margin: 0;
+  padding-inline-start: 1.2em;
+}

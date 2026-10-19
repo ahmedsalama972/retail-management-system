@@ -1,0 +1,215 @@
+.pdf-upload {
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.pdf-upload-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 40px;
+    background: #f8f9fa;
+    border: 2px dashed #e0e0e0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    min-height: 280px;
+}
+
+.pdf-upload-area:hover {
+    border-color: #d0d0d0;
+    background: #f5f5f5;
+}
+
+.pdf-upload-area.dragging {
+    border-color: #ff9800;
+    background: #fff8f0;
+}
+
+.pdf-upload-area.has-file {
+    border-color: #56ca00;
+    background: #f4fbf0;
+    min-height: 220px;
+    padding: 36px 24px;
+}
+
+.selected-file-name {
+    display: inline-block;
+    max-width: 100%;
+    padding: 8px 14px;
+    margin-top: 4px;
+    border-radius: 8px;
+    background: #fff;
+    border: 1px solid #d7e7c8;
+    color: #1b2a3a;
+    font-size: 14px;
+    font-weight: 700;
+    word-break: break-all;
+}
+
+.clear-file-link {
+    background: none;
+    border: none;
+    color: #ef4444;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+}
+
+/* Document Icons Container */
+.document-icons {
+    position: relative;
+    width: 180px;
+    height: 140px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Individual Document Icon */
+.document-icon {
+    position: absolute;
+    width: 100px;
+    height: 130px;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    transition: transform 0.3s ease;
+}
+
+.document-icon::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(to bottom, transparent 0%, transparent 8%, #e0e0e0 8%, #e0e0e0 10%, transparent 10%),
+        linear-gradient(to bottom, transparent 12%, transparent 14%, #e0e0e0 14%, #e0e0e0 16%, transparent 16%),
+        linear-gradient(to bottom, transparent 20%, transparent 22%, #d0d0d0 22%, #d0d0d0 24%, transparent 24%),
+        linear-gradient(to bottom, transparent 28%, transparent 30%, #d0d0d0 30%, #d0d0d0 32%, transparent 32%),
+        linear-gradient(to bottom, transparent 36%, transparent 38%, #d0d0d0 38%, #d0d0d0 40%, transparent 40%),
+        linear-gradient(to bottom, transparent 44%, transparent 46%, #d0d0d0 46%, #d0d0d0 48%, transparent 48%),
+        linear-gradient(to bottom, transparent 52%, transparent 54%, #d0d0d0 54%, #d0d0d0 56%, transparent 56%),
+        linear-gradient(to bottom, transparent 60%, transparent 62%, #d0d0d0 62%, #d0d0d0 64%, transparent 64%),
+        linear-gradient(to bottom, transparent 68%, transparent 70%, #d0d0d0 70%, #d0d0d0 72%, transparent 72%),
+        linear-gradient(to bottom, transparent 76%, transparent 78%, #d0d0d0 78%, #d0d0d0 80%, transparent 80%),
+        linear-gradient(to bottom, transparent 84%, transparent 86%, #d0d0d0 86%, #d0d0d0 88%, transparent 88%),
+        linear-gradient(to bottom, transparent 92%, transparent 94%, #e0e0e0 94%, #e0e0e0 96%, transparent 96%);
+    background-size: 100% 100%;
+    opacity: 0.6;
+}
+
+/* Left Document (Behind, Left) */
+.document-icon-left {
+    left: 0;
+    transform: rotate(-8deg) translateX(-10px);
+    opacity: 0.7;
+    z-index: 1;
+}
+
+/* Center Document (Front, Prominent) */
+.document-icon-center {
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    width: 110px;
+    height: 140px;
+}
+
+/* Right Document (Behind, Right) */
+.document-icon-right {
+    right: 0;
+    transform: rotate(8deg) translateX(10px);
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.pdf-upload-area:hover .document-icon-left {
+    transform: rotate(-10deg) translateX(-15px);
+}
+
+.pdf-upload-area:hover .document-icon-right {
+    transform: rotate(10deg) translateX(15px);
+}
+
+/* Upload Text */
+.upload-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-align: center;
+}
+
+.upload-instruction {
+    font-size: 16px;
+    color: #333;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.browse-link {
+    background: none;
+    border: none;
+    color: #ff9800;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    text-decoration: underline;
+    transition: color 0.2s ease;
+}
+
+.browse-link:hover {
+    color: #f57c00;
+}
+
+.browse-link:active {
+    color: #e65100;
+}
+
+.file-size-limit {
+    font-size: 14px;
+    color: #666;
+    font-weight: 400;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .pdf-upload-area {
+        padding: 40px 20px;
+        min-height: 240px;
+    }
+
+    .document-icons {
+        width: 140px;
+        height: 110px;
+        margin-bottom: 30px;
+    }
+
+    .document-icon {
+        width: 80px;
+        height: 100px;
+    }
+
+    .document-icon-center {
+        width: 90px;
+        height: 110px;
+    }
+
+    .upload-instruction {
+        font-size: 14px;
+    }
+
+    .file-size-limit {
+        font-size: 12px;
+    }
+}
